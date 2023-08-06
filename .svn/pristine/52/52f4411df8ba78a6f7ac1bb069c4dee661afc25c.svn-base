@@ -1,0 +1,60 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package modelo;
+
+import dao.HuespedDao;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import vista.NuevoLogin;
+
+/**
+ *
+ * @author MI PC
+ */
+public class Pruebas {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+
+//        Huesped h = new Huesped(321, "stiven", "jojoa", 31222, "armenia", "stiven@gmail.com");
+//        HuespedDao d = new HuespedDao();
+//        //agregar huesped
+//        d.guardarHuesped(h);
+//        //buscar huesped
+//        //System.out.println(d.buscarHuesped(123));
+        //   new NuevoLogin().setVisible(true);
+        int aleatorio = +1 + (int) (Math.random() * 10);
+        JOptionPane.showMessageDialog(null, "Cual es el resultado de esta operacion \n "
+                + aleatorio + " + " + aleatorio + " * " + aleatorio + " + " + aleatorio + " = ?teniendo en cuenta que el primer numero \n"
+                + "debe ser menor al segundo");
+
+        int num1 = Integer.parseInt(JOptionPane.showInputDialog("ingrese el primer numero"));
+        int num2 = Integer.parseInt(JOptionPane.showInputDialog("ingrese el primer numero"));
+        int respuesta = num1 * num2;
+        int indicado = aleatorio + aleatorio * aleatorio + aleatorio;
+
+        if (num1 <= num2) {
+            if (indicado == respuesta) {
+                System.out.println("el numero es: " + respuesta);
+                new NuevoLogin().setVisible(true);
+            } else {
+                NuevoLogin e = new NuevoLogin();
+                e.setVisible(true);
+                e.dispose();
+                JOptionPane.showMessageDialog(null, "La Operación no es la correcta", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "los numeros " + num1 + " Y " + num2 + " No son correctos para la operacion"
+                    + "", "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+    }
+
+}
